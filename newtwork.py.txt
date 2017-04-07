@@ -1,0 +1,21 @@
+import os
+import sys
+import ipaddress
+
+def showHelp():
+    print("usage:")
+    print("dataInput <IP adress> <Asn No> < json or yaml or xml><Actions>")
+    sys.exit(0);
+def validate_ipaddress(ip_address):
+	print(ipaddress.ip_address(ip_address))
+
+def print_format(sys.argv[3]):
+	if sys.argv[3] == 'json':
+		return response.json()
+	
+if __name__ == '__main__':
+	if len(sys.argv) < 4:
+		showHelp()
+	validate_ipaddress(sys.argv[1])
+	response = requests.get("https://stat.ripe.net/docs/data_api", params=[sys[1],sys[3:]])
+	print(print_format(sys.argv[3]))
